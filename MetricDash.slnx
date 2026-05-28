@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="MetricDash.Cli/MetricDash.Cli.csproj" />
+  <Project Path="MetricDash.Core/MetricDash.Core.csproj" />
+  <Project Path="MetricDash.WinForms/MetricDash.WinForms.csproj" />
+</Solution>
