@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace MetricDash.Core.Models;
+﻿namespace MetricDash.Core.Models;
 
 public record MetricPoint(DateTime Timestamp, double Value);
 
@@ -12,9 +8,9 @@ public class MetricSeries
     public string Unit { get; init; } = string.Empty;
     public List<MetricPoint> Points { get; } = new();
 
-    public double Min => Points.Min(p => p.Value);
-    public double Max => Points.Max(p => p.Value);
-    public double Avg => Points.Average(p => p.Value);
+    public double Min => Points.Any() ? Points.Min(p => p.Value) : 0;
+    public double Max => Points.Any() ? Points.Max(p => p.Value) : 0;
+    public double Avg => Points.Any() ? Points.Average(p => p.Value) : 0;
     public double Trend => CalculateTrend();
 
     private double CalculateTrend()
